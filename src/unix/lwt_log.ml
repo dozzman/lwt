@@ -26,20 +26,11 @@
 open Lwt
 include Lwt_log_core
 
-let program_name = Filename.basename Sys.argv.(0)
+let program_name = Filename.basename Sys.executable_name
 
 (* Errors happening in this module are always logged to [stderr]: *)
 let log_intern fmt =
   Printf.eprintf ("%s: Lwt_log: " ^^ fmt ^^ "\n%!") program_name
-
-(* +-----------------------------------------------------------------+
-   | Rules                                              |
-   +-----------------------------------------------------------------+ *)
-
-let _ =
-  match try Some(Sys.getenv "LWT_LOG") with Not_found -> None with
-    | Some str -> Lwt_log_core.load_rules str
-    | None -> ()
 
 (* +-----------------------------------------------------------------+
    | Templates                                                       |

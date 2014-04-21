@@ -1,3 +1,34 @@
+===== 2.4.5 (2014-04-21) =====
+ 
+  * Lwt_ssl: expand API to allow setting socket options with Ssl
+    functions
+  * fix for camlp4 trunk
+  * support for React 1.0.0
+  * add Lwt_sequence.find_node_* functions
+  * Lwt_log: get backtrace early to overcome exns in
+    Printexc.to_string
+  * fix potential deadlock in lwt_unix_recv_notifications
+  * lwt.glib fixes:
+    - handle HUP
+    - fix for BSD/OSX
+  * do not raise an exception in Lwt_log if argv[0] is blank
+
+===== 2.4.4 (2013-10-22) =====
+
+  * add Android support
+  * fix issues in stubs for Lwt_unix jobs
+  * fix compatibility issue with OCaml 4.01
+  * fix the stub for ev_timer_init
+  * add Lwt.log containing Lwt_log_core, the Unix-free part of Lwt_log
+  * add Lwt_ssl.get_fd
+  * fix stdout/stderr redirections in Lwt_daemon.daemonize
+  * add Lwt_list.{map,iter}i{_s,_p}
+
+===== 2.4.3 (2012-12-27) =====
+
+  * fix Lwt_ssl.{in,out}_channel_of_descr: shutdown and close the
+    socket when the channel is closed
+
 ===== 2.4.2 (2012-09-28) =====
 
   * fix the stub for Lwt_unix.readdir
@@ -33,12 +64,12 @@
     - pass -lws2_32 instead of ws2_32.lib if building with mingw
     - fix a bug causing Lwt_unix.read/write to block when a socket
       is not readable/writable
-    - port Lwt_process and Lwt_unix.system to windows
-  * Compatibility with ocaml 4.00:
+    - port Lwt_process and Lwt_unix.system to Windows
+  * Compatibility with OCaml 4.00:
     - add O_SHARE_DELETE to Lwt_unix.open_flag
     - add -package compiler-libs.toplevel for files using Toploop
   * Do not use module Sys for signal handling to avoid
-    ocaml code to be called in a C thread
+    OCaml code to be called in a C thread
   * Fix Lwt_unix.wrap_syscall: try instead of Lwt.catch
   * Fix a dead-lock between lwt_unix_send_notification
     and lwt_unix_recv_notifications
@@ -57,7 +88,7 @@
   * Add assert_lwt keyword to the syntax extension
   * Add Lwt.wrap
   * Add Lwt_glib.iter and Lwt_glib.wakeup
-  * ocaml 3.13 ready
+  * OCaml 3.13 ready
   * Allow to compile without libev support
   * Fix bugs in Lwt_io
   * Better handling of forks
@@ -90,8 +121,8 @@
        as select
     ** allow easier integration of external libraries supporting
        asynchronous operations
-  * Lots of improvements for windows:
-    ** use the ocaml select instead of libev by default on windows
+  * Lots of improvements for Windows:
+    ** use the OCaml select instead of libev by default on Windows
     ** make asynchronous operations on non-socket file descriptors
        such as pipes to work
     ** make glib integration to work
@@ -110,7 +141,7 @@
 
 ===== 2.2.1 (2011-01-26) =====
 
-  * Better interaction with Js_of_ocaml.
+  * Better interaction with Js_of_OCaml.
   * Add functions {{{Lwt.register_pause_notifier}}} and {{{Lwt.paused_count}}}.
 
 ===== 2.2.0 (2010-12-13) =====
